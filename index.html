@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow - Modern To-Do List</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');">
+    <script src="js/script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>TaskFlow</h1>
+            <p>Organize your day, achieve your goals</p>
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number" id="totalTasks">0</div>
+                    <div class="stat-label">Total Tasks</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="completedTasks">0</div>
+                    <div class="stat-label">Completed</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="pendingTasks">0</div>
+                    <div class="stat-label">Pending</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="input-section">
+            <div class="input-wrapper">
+                <input 
+                    type="text" 
+                    id="taskInput" 
+                    placeholder="What do you need to do today?"
+                    onkeypress="handleEnter(event)"
+                >
+                <button class="add-btn" onclick="addTask()">Add Task</button>
+            </div>
+        </div>
+
+        <div class="filter-section">
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterTasks('all')">All</button>
+                <button class="filter-btn" onclick="filterTasks('pending')">Pending</button>
+                <button class="filter-btn" onclick="filterTasks('completed')">Completed</button>
+            </div>
+            <button class="clear-btn" onclick="clearCompleted()">Clear Completed</button>
+        </div>
+
+        <div class="tasks-section" id="tasksList">
+            <div class="empty-state">
+                <div class="empty-state-icon">📝</div>
+                <div class="empty-state-text">No tasks yet. Add one to get started!</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
